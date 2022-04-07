@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,37 +8,39 @@
     <title>Javascript Code Quiz</title>
     <link rel="stylesheet" href="./style.css">
     <!-- FontAwesome CDN link for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
 </head>
+
 <body>
     <!-- Start Quiz Button -->
     <div class="start_btn"><button>Start Quiz</button></div>
 
     <!-- Info Box -->
     <div class="info_box">
-        <div class="info_title"></div>
-            <span>Some Rules of this Quiz</span>
-            </div>
-            <div class="info_list">
-                <div class="info">1. You will have only <span>15 seconds</span> per  question.</div>
-                <div class="info">2. Once you select your answer, you can't reselect.</div>
-                <div class="info">3. You can't select any option once time goes off.</div>
-                <div class="info">4. You can't exit from the Quiz while you're playing</div>
-                <div class="info">5. You'll get points for correct answers and lose time for incorrect answers.</div>
-            </div>
-            <div class="buttons"></div>
-                <button class="quit">Exit Quiz</button>
-                <button class="restart">Continue</button>
-        </div>
+        <div class="info_title">Some Rules of this Quiz</div>
+          
+    <div class="info_list">
+        <div class="info">1. You will have only <span>15 seconds</span> per question.</div>
+        <div class="info">2. Once you select your answer, you can't reselect.</div>
+        <div class="info">3. You can't select any option once time goes off.</div>
+        <div class="info">4. You can't exit from the Quiz while you're playing</div>
+        <div class="info">5. You'll get points for correct answers and lose time for incorrect answers.</div>
     </div>
+    <div class="buttons">
+    <button class="quit">Exit Quiz</button>
+    <button class="restart">Continue</button>
+    </div>
+    </div>
+</div>
 
     <!-- Quiz Box -->
     <div class="quiz_box">
         <header>
             <div class="title">JavaScrip Code Quiz</div>
-            <div class="timer"></div>
+            <div class="timer">
             <div class="time_text">Time Left</div>
             <div class="time_sec">15</div>
+            </div>
         </header>
         <section>
             <div class="que_text">
@@ -64,37 +67,33 @@
         <!-- Quiz Box Footer -->
         <footer>
             <div class="total_que">
-                <span><p>2</p>Of<p>5</p> Questions</span>
+                <span>
+                    <p>2</p>of<p>5</p> Questions
+                </span>
             </div>
             <button class="next_btn">Next Que</button>
         </footer>
     </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <span>and sorry, You got only <p>2</p> out of <p>5</p></span>
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+
 </body>
 
 
-<!-- <body>
-        <div id="start">Start Quiz</div>
-        <div id="quiz"></div>
-            <div id="qImg"> <img scr="img.png"></div>    
-            <div id="question"><p> Question </p></div>
-                <div class="choice" id="A" 
-                onclick="checkAnswer('A')">A</div>
-                <div class="choice" id="B" 
-                onclick="checkAnswer('B')">B</div>
-                <div class="choice" id="C" 
-                onclick="checkAnswer('C')">C</div>
-                <div class="choice" id="D" 
-                onclick="checkAnswer('D')">D</div>
-            <div id="timer"></div>
-                <div id="counter"> 6 </div>
-                <div id="btimeGauge"></div>
-                <div id="timeGauge"></div>
-            <div id="progress"></div>
-        <div id="scoreContainer" style="display: none;"></div>
-            <img scr = "smile.png"><p>50%</p>
-    </div>
 
-
-    <script src="./script.js"></script> 
-</body> -->
 </html>

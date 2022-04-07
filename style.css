@@ -1,10 +1,9 @@
-/* importing google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -12,14 +11,24 @@ body {
 }
 
 .start_btn,
-.info_box 
-.quiz_box{
+.info_box, 
+.quiz_box,
+.result_box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow:  0px 4px 8px 0 rgba(0,0,0,0.2),
+                 0px 6px 20px 0 rgba(0,0,0,0.19);       
 }
 
+.info_box.activeInfo{
+    z-index: 5;
+    opacity: 1;
+    pointer-event: auto;
+    transform: translate(-50%, -50%) scale(1);
+
+}
 /* Start Quiz Button Styling */
 .start_btn button {
     font-size: 25px;
@@ -34,10 +43,12 @@ body {
 }
 
 .info_box {
-    display: none;
     width: 540px;
     background: #fff;
     border-radius: 5px;
+    opacity: 0;
+    pointer-event: none;
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
 .info_box .info_title {
@@ -46,23 +57,18 @@ body {
     border-bottom: 1px solid lightgrey;
     display: flex;
     align-items: center;
-    padding: 0 35px;
+    padding: 0 30px;
     font-size: 20px;
     font-weight: 600;
 }
 
 .info_box .info_list {
-    padding: 15px 35 px;
+    padding: 15px 35px;
 }
 
 .info_box .info_list .info {
     margin: 5px 0;
     font-size: 17px;
-}
-
-.info_box .info_list .info span {
-    font-weight: 600;
-    color: #007bff;
 }
 
 .info_box .buttons {
@@ -109,6 +115,9 @@ body {
     width: 550px;
     background: #fff;
     border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
 .quiz_box header {
@@ -147,7 +156,7 @@ body {
     user-select: none;
 }
 
-.quiz_box header .timer .timer_sec {
+.quiz_box header .timer .time_sec {
     font-size: 18px;
     font-weight: 500;
     background: #343a40;
@@ -239,171 +248,95 @@ section .option_list .option:hover {
 
 footer .total_que span p{
     font-weight: 500;
+    padding: 0 5px;
+
 }
 
-/* body{
+.total_que span p:first-child {
+    padding-left: 0px;
+}
+
+footer .next_btn {
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #007bff;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    cursor: pointer;
+}
+
+footer .next_btn:hover {
+    background: #0263ca;
+}
+
+.result_box{
+    background: #fff;
+    width: 450px;
+    padding: 25px 30px;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transform: tanslate(-50%, -50%) scale(0.9);
+}
+
+.result_box .icon{
+    font-size: 100px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.result-box .icon .fa fas-crown{
+    font-size: 100px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.result_box .complete_text {
     font-size: 20px;
-    font-family: monospace;
+    font-weight: 500;
 }
 
-#container{
-    margin : 20px auto;
-    background-color: white;
-    height: 300px;
-    width : 700px;
-    border-radius: 5px;
-    box-shadow: 0px 5px 15px 0px;
-    position: relative;
+.result_box .score_text span {
+    display: flex;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 500;
 }
-#start{
-    font-size: 1.5em;
-    font-weight: bolder;
-    word-break: break-all;
-    width:100px;
-    height:150px;
-    border : 2px solid lightgrey;
-    text-align: center;
+
+.score_text span p {
+    font-weight: 600;
+    padding: 0 4px
+}
+
+.result_box .buttons{
+    display: flex;
+    margin: 20px 0;
+}
+
+.result_box .buttons button {
+    margin: 0 10px;
+    height: 45px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #007bff;
     cursor: pointer;
-    position: absolute;
-    left:300px;
-    top:50px;
-    color : lightgrey;
-}
-#start:hover{
-    border: 3px solid lightseagreen;
-    color : lightseagreen;
+    transition: all 0.3s ease;
+
 }
 
-#qImg{
-    width : 200px;
-    height : 200px;
-    position: absolute;
-    left : 0px;
-    top : 0px;
-}
-#qImg img{
-    width : 200px;
-    height : 200px;
-    border-top-left-radius: 5px;
-}
-
-#question{
-    width:500px;
-    height : 125px;
-    position: absolute;
-    right:0;
-    top:0;
-}
-#question p{
-    margin : 0;
-    padding : 15px;
-    font-size: 1.25em;
-}
-
-#choices{
-    width : 480px;
-    position: absolute;
-    right : 0;
-    top : 125px;
-    padding : 10px
-}
-.choice{
-    display: inline-block;
-    width : 135px;
-    text-align: center;
-    border : 1px solid grey;
-    border-radius: 5px;
-    cursor: pointer;
-    padding : 5px;
-}
-.choice:hover{
-    border : 2px solid grey;
-    font-weight: bold;
-}
-
-#timer{
-    position: absolute;
-    height : 100px;
-    width : 200px;
-    bottom : 0px;
-    text-align: center;
-}
-#counter{
-    font-size: 3em;
-}
-#btimeGauge{
-    width : 150px;
-    height : 10px;
-    border-radius: 10px;
-    background-color: lightgray;
-    margin-left : 25px;
-}
-#timeGauge{
-    height : 10px;
-    border-radius: 10px;
-    background-color: mediumseagreen;
-    margin-top : -10px;
-    margin-left : 25px;
-}
-#progress{
-    width : 500px;
-    position: absolute;
-    bottom : 0px;
-    right : 0px;
-    padding:5px;
-    text-align: right;
-}
-.prog{
-    width : 25px;
-    height : 25px;
-    border: 1px solid #000;
-    display: inline-block;
-    border-radius: 50%;
-    margin-left : 5px;
-    margin-right : 5px;
-}
-#scoreContainer{
-    margin : 20px auto;
-    background-color: white;
-    opacity: 0.8;
-    height: 300px;
-    width : 700px;
-    border-radius: 5px;
-    box-shadow: 0px 5px 15px 0px;
-    position: relative;
-    display: none;
-}
-#scoreContainer img{
-    position: absolute;
-    top:100px;
-    left:325px;
-}
-#scoreContainer p{
-    position: absolute;
-    display: block;
-    width : 59px;
-    height :59px;
-    top:130px;
-    left:325px;
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-}
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.buttons button
 
