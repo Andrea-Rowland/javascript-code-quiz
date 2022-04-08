@@ -99,6 +99,12 @@ function startTimer(time) {
     function timer() {
         timeCount.textContent = time; //changing the value of timeCount with time value
         time--; // decrement the time value
+        
+        // TO DO when a question is anwered incorrectly, subtract 10 seconds from the timer
+
+        // TO DO When either all the questions are answered || timer reaches 0, the game ends
+
+        // TO DO When game ends, user can save initials and score
     }
 }
 
